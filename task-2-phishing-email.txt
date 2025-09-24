@@ -1,0 +1,59 @@
+﻿Cybersecurity Task 2: Phishing Email Analysis Report
+
+
+Objective
+The goal of this task is to dissect a suspicious email to identify its phishing characteristics. 
+Tools Used
+* Web Browser: For initial research and viewing the email sample.
+* MXToolBox Email Header Analyzer: A free online tool used to parse the email header and verify its authenticity.
+* Text Editor: For drafting the analysis and notes.
+Phishing Email Sample Under Investigation
+The following screenshot is the PayPal phishing email that was analyzed.
+Analysis of Phishing Indicators
+The email was analyzed from two perspectives: the visible content (what a regular user sees) and the technical metadata (the email header). The analysis concluded with certainty that the email is a malicious phishing attempt.
+Part 1: Content-Based Indicators (The Obvious Clues)
+These are the red flags found directly within the email's body and sender details:
+1. Suspicious Sender Address: The email was sent from services@paypal-accounts.com. This is a classic look-alike domain. It is designed to trick the recipient into thinking it's from PayPal, but the official domain is @paypal.com.
+2. Urgent and Threatening Language: The email creates a false sense of urgency to provoke a panicked reaction. Phrases like "You have 24 hours to solve the problem" and "your account will be permanetly disabled" are designed to make the user act without thinking.
+3. Spelling and Grammatical Errors: The email contains a significant spelling mistake: "permanetly" instead of "permanently." A professional company like PayPal would not make such an error in an official communication.
+4. Generic Greeting: The email begins with "Dear PayPal customer". Legitimate companies typically personalize emails by using the recipient's actual name. A generic greeting is a common sign of a mass phishing campaign.
+5. Suspicious Link/Call to Action: The email prompts the user to click a "Confirm Your Information" button. In a real scenario, hovering over this link would reveal a URL that does not lead to the official PayPal website. The goal is to lead the victim to a fake login page to steal their credentials.
+Part 2: Technical Indicators (Email Header Analysis)
+A simulated but realistic email header was analyzed using MXToolBox to find technical proof of forgery. The analysis revealed the following:
+1. Failed SPF Authentication: The analysis showed a definitive spf=fail. This means the email originated from an IP address that is not an authorized sender for the domain it claims to be from. This is hard proof that the sender address was spoofed.
+2. Failed DKIM Signature: The email also had a dkim=fail result. DKIM is a digital signature that verifies an email's integrity. A failure here proves the email was not authorized by the domain owner and was likely altered or forged.
+3. Suspicious Origin Server: The header's "Relay Information" showed that the email originated from a server named mail-scam-server.cn. This server is based in China and has a suspicious name, which is completely inconsistent with a legitimate email from PayPal (a US-based company).
+4. Missing DMARC Record: The fraudulent domain (paypal-accounts.com) had no DMARC security policy published. The absence of this modern security standard is another strong indicator that the domain is not legitimate.
+Conclusion
+The email is unequivocally a phishing scam. It combines classic social engineering tactics (urgency, fear) with technical forgery (spoofed address). The numerous red flags, from the simple spelling mistake to the failed SPF and DKIM authentication checks, provide a complete profile of a malicious attempt to steal user credentials.
+Interview Questions & Answers
+1. What is phishing?
+Phishing is a type of cyber-attack where attackers impersonate a legitimate entity (like a bank, a well-known company, or a government agency) in an electronic communication, typically email, to deceive victims into revealing sensitive information, such as login credentials, credit card numbers, or personal identifiers.
+2. How to identify a phishing email?
+You can identify a phishing email by looking for red flags such as: a suspicious or mismatched sender address, poor spelling and grammar, urgent or threatening language, generic greetings, unexpected attachments, and links that lead to a different URL than the one displayed.
+3. What is email spoofing?
+Email spoofing is the act of forging an email sender address so that the message appears to have originated from someone or somewhere other than the actual source. Attackers use this technique to gain the recipient's trust.
+4. Why are phishing emails dangerous?
+Phishing emails are dangerous because they are the primary delivery mechanism for many cyber-attacks. If successful, they can lead to identity theft, financial loss, credential compromise, and malware infections, including ransomware. For a corporation, a single successful phish can lead to a massive data breach.
+5. How can you verify the sender's authenticity?
+You can verify a sender's authenticity by:
+* Carefully inspecting the "From" email address for any misspellings or unusual domains.
+* Analyzing the email headers to check if the SPF, DKIM, and DMARC authentication checks have passed.
+* Contacting the sender through a separate, known communication channel (like their official website or phone number) to confirm if they sent the email.
+6. What tools can analyze email headers?
+Several free online tools can analyze email headers to make them readable, including:
+* MXToolBox Email Header Analyzer
+* Google Admin Toolbox Messageheader
+* WhatIsMyIPAddress Email Header Analyzer
+7. What actions should be taken on suspected phishing emails?
+1. Do not click any links or download any attachments.
+2. Do not reply to the email.
+3. Report the email as phishing or spam using your email client's built-in reporting feature.
+4. Delete the email from your inbox.
+5. If you are in a corporate environment, forward the email to your IT or security department.
+8. How do attackers use social engineering in phishing?
+Social engineering is the core of phishing. Attackers manipulate human psychology by:
+* Creating a Sense of Urgency or Fear: Using threats like "your account will be suspended."
+* Appealing to Greed: Offering fake lottery winnings or prizes.
+* Leveraging Authority: Impersonating a CEO or a government agency.
+* Provoking Curiosity: Using subject lines like "You've been tagged in a photo" or "Invoice Overdue."
